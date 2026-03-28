@@ -196,7 +196,7 @@ Preferred default: configure this in the project-local `pyproject.toml`:
 
 ```toml
 [tool.uv]
-exclude-newer = "7 days"
+exclude-newer = "14 days"
 ```
 
 Only use a machine-wide default if the user explicitly wants global uv
@@ -204,10 +204,10 @@ configuration. In that case, write:
 
 ```toml
 # ~/.config/uv/uv.toml
-exclude-newer = "7 days"
+exclude-newer = "714 days"
 ```
 
-Use `"7 days"` as the default value. Change the interval only if the
+Use `"14 days"` as the default value. Change the interval only if the
 user explicitly asks for a different cooling-off period.
 
 ------------------------------------------------------------------------

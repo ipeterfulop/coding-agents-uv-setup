@@ -27,9 +27,9 @@ facing instruction files and companion guides that help you apply the same
 The two main instruction files are similar in intent and policy, but each is
 optimized for its target agent:
 
-- [`.claude/CLAUDE.md`](/Users/peterfulop.me/code/coding-agents-uv-setup/.claude/CLAUDE.md)
+- [`.claude/CLAUDE.md`](.claude/CLAUDE.md)
   is for Claude Code.
-- [`.codex/AGENTS.md`](/Users/peterfulop.me/code/coding-agents-uv-setup/.codex/AGENTS.md)
+- [`.codex/AGENTS.md`](.codex/AGENTS.md)
   is for Codex and other tools that read `AGENTS.md`.
 
 They both enforce the same core idea: use `uv` for Python package management
@@ -39,10 +39,10 @@ interpretability in Claude versus Codex.
 ## Start Here
 
 If you want to use the Claude-oriented version, start with
-[`.claude/README.md`](/Users/peterfulop.me/code/coding-agents-uv-setup/.claude/README.md).
+[`.claude/README.md`](.claude/README.md).
 
 If you want to use the Codex-oriented version, start with
-[`.codex/README.md`](/Users/peterfulop.me/code/coding-agents-uv-setup/.codex/README.md).
+[`.codex/README.md`](.codex/README.md).
 
 Those two guides explain how to reuse the bundled instruction file in another
 repository, what behavior to expect, and how to verify that the agent is
@@ -52,17 +52,17 @@ actually using `uv`.
 
 | Path | Purpose |
 |------|---------|
-| [`.claude/CLAUDE.md`](/Users/peterfulop.me/code/coding-agents-uv-setup/.claude/CLAUDE.md) | Canonical Claude Code instruction file for a `uv`-only Python workflow. |
-| [`.claude/README.md`](/Users/peterfulop.me/code/coding-agents-uv-setup/.claude/README.md) | Guide for making Claude Code use the bundled `CLAUDE.md` and verifying that it prefers `uv`. |
-| [`.codex/AGENTS.md`](/Users/peterfulop.me/code/coding-agents-uv-setup/.codex/AGENTS.md) | Canonical Codex instruction file for a `uv`-only Python workflow. |
-| [`.codex/README.md`](/Users/peterfulop.me/code/coding-agents-uv-setup/.codex/README.md) | Guide for making Codex use the bundled `AGENTS.md` and verifying that it prefers `uv`. |
+| [`.claude/CLAUDE.md`](.claude/CLAUDE.md) | Canonical Claude Code instruction file for a `uv`-only Python workflow. |
+| [`.claude/README.md`](.claude/README.md) | Guide for making Claude Code use the bundled `CLAUDE.md` and verifying that it prefers `uv`. |
+| [`.codex/AGENTS.md`](.codex/AGENTS.md) | Canonical Codex instruction file for a `uv`-only Python workflow. |
+| [`.codex/README.md`](.codex/README.md) | Guide for making Codex use the bundled `AGENTS.md` and verifying that it prefers `uv`. |
 
 ## Picking the Right File
 
-Use [`.claude/CLAUDE.md`](/Users/peterfulop.me/code/coding-agents-uv-setup/.claude/CLAUDE.md)
+Use [`.claude/CLAUDE.md`](.claude/CLAUDE.md)
 when the agent expects Claude-style project memory.
 
-Use [`.codex/AGENTS.md`](/Users/peterfulop.me/code/coding-agents-uv-setup/.codex/AGENTS.md)
+Use [`.codex/AGENTS.md`](.codex/AGENTS.md)
 when the agent expects `AGENTS.md` instructions.
 
 If you support both tools, keep both files aligned on policy, but do not assume
