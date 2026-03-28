@@ -69,4 +69,21 @@ If you support both tools, keep both files aligned on policy, but do not assume
 they should be textually identical. They are similar by design, while still
 being optimized for Claude and Codex respectively.
 
+## Freeing Up Space
+
+If you use `uv` heavily, its cache directory can grow over time. It is worth
+checking occasionally, especially if you frequently install tools or work
+across multiple repositories.
+
+To see how much space the cache is using, run:
+
+```bash
+du -sh "$(uv cache dir)"
+```
+
+If the cache has grown larger than you want, you can remove it with:
+
+```bash
+uv cache clean
+```
 
