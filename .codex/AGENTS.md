@@ -204,7 +204,7 @@ configuration. In that case, write:
 
 ```toml
 # ~/.config/uv/uv.toml
-exclude-newer = "714 days"
+exclude-newer = "14 days"
 ```
 
 Use `"14 days"` as the default value. Change the interval only if the
