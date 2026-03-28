@@ -1,4 +1,7 @@
-# AGENTS.md --- Python (uv-only)
+# Python project rules: use uv for all dependency, environment, and execution tasks
+
+## Table of Contents
+
 - [Core Principle](#core-principle)
 - [Dependency Management](#dependency-management)
 - [Execution Rules](#execution-rules)

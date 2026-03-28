@@ -1,4 +1,4 @@
-# Python Project Rules
+# Python project rules: use uv for all dependency, environment, and execution tasks
 
 ## Table of Contents
 
