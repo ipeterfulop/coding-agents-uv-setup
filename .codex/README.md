@@ -2,7 +2,7 @@
 
 Codex works better when the repository gives it direct, local instructions.
 For Python projects that should use `uv` consistently, this directory already
-contains a ready-made [AGENTS.md](/Users/peterfulop.me/code/coding-agents-uv-setup/.codex/AGENTS.md)
+contains a ready-made [AGENTS.md](.codex/AGENTS.md)
 that tells Codex how to install dependencies, run tools, and avoid the usual
 fallbacks to `pip` or raw `python`.
 
@@ -20,7 +20,7 @@ means one of these:
 - direct tool execution instead of `uv run pytest` or `uv run ruff check .`
 - manual edits to dependency declarations
 
-The bundled [AGENTS.md](/Users/peterfulop.me/code/coding-agents-uv-setup/.codex/AGENTS.md)
+The bundled [AGENTS.md](.codex/AGENTS.md)
 is meant to prevent that.
 
 ## Quick Verification
@@ -42,7 +42,7 @@ repository instructions are not specific enough yet.
 ## Use the Bundled `AGENTS.md`
 
 Treat the bundled
-[AGENTS.md](/Users/peterfulop.me/code/coding-agents-uv-setup/.codex/AGENTS.md)
+[AGENTS.md](.codex/AGENTS.md)
 as the canonical instruction file for Codex.
 
 For a repository that should follow the same rules:
@@ -58,7 +58,7 @@ agent less predictable.
 
 ## What the Included File Covers
 
-The bundled [AGENTS.md](/Users/peterfulop.me/code/coding-agents-uv-setup/.codex/AGENTS.md)
+The bundled [AGENTS.md](.codex/AGENTS.md)
 already gives Codex the important operational rules:
 
 - use `uv` exclusively for Python package and environment management
@@ -140,3 +140,7 @@ rules. Good reasons to customize it include:
 
 Keep the `uv` rules intact unless the project is intentionally using a
 different package-management strategy.
+
+### Protection against compromised packages
+
+This instruction provides protection against compromised packages by ensuring that uv does not immediately download newly published packages. Instead, it uses the `exclude-newer` setting in `pyproject.toml` (by default, "14 days") to delay the installation of packages that are too new. This reduces the risk of accidentally using a malicious package upload before the wider community has vetted it.

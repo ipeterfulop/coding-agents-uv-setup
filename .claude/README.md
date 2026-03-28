@@ -26,7 +26,7 @@ not match the rest of the project. That usually shows up in a few ways:
 - lockfiles and environments drifting out of sync
 
 Adding a short repository rule set avoids that ambiguity. This repository
-already includes one in [CLAUDE.md](/Users/peterfulop.me/code/coding-agents-uv-setup/.claude/CLAUDE.md).
+already includes one in [CLAUDE.md](.claude/CLAUDE.md).
 
 ## Quick Verification
 
@@ -47,7 +47,7 @@ are not specific enough yet.
 ## Use the Bundled `CLAUDE.md`
 
 Instead of writing a new file from scratch, start from the bundled
-[CLAUDE.md](/Users/peterfulop.me/code/coding-agents-uv-setup/.claude/CLAUDE.md).
+[CLAUDE.md](.claude/CLAUDE.md).
 It already defines a strict `uv` workflow, command patterns, testing and
 linting entrypoints, and the hard constraints that keep Claude out of `pip`
 and manual environment management.
@@ -60,7 +60,7 @@ by hand.
 
 ## What the Included File Covers
 
-The bundled [CLAUDE.md](/Users/peterfulop.me/code/coding-agents-uv-setup/.claude/CLAUDE.md)
+The bundled [CLAUDE.md](.claude/CLAUDE.md)
 already gives Claude Code the important signals:
 
 - `uv` is the only supported Python package manager
@@ -129,7 +129,7 @@ still need work.
 ## Optional: Make It Global
 
 If you want the same default behavior across multiple repositories, use the
-bundled [CLAUDE.md](/Users/peterfulop.me/code/coding-agents-uv-setup/.claude/CLAUDE.md)
+bundled [CLAUDE.md](.claude/CLAUDE.md)
 as the base file for your user-level `CLAUDE.md` as well:
 
 - macOS/Linux: `~/.claude/CLAUDE.md`
@@ -138,4 +138,9 @@ as the base file for your user-level `CLAUDE.md` as well:
 Global defaults are convenient, but repository-level instructions are still the
 better place for project-specific rules. A practical pattern is to reuse this
 file broadly, then add only small repository overrides where needed.
+
+### Protection against compromised packages
+
+This instruction provides protection against compromised packages by ensuring that uv does not immediately download newly published packages. Instead, it uses the `exclude-newer` setting in `pyproject.toml` (by default, "14 days") to delay the installation of packages that are too new. This reduces the risk of accidentally using a malicious package upload before the wider community has vetted it.
+
 
