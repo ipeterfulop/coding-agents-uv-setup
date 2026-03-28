@@ -12,6 +12,7 @@
 - [Code Style Conventions](#code-style-conventions)
 - [Pre-commit Hooks](#pre-commit-hooks)
 - [Hard Constraints](#hard-constraints)
+- [Protect against compromised packages](#protect-against-compromised-packages)
 - [How to-s](#how-to-s)
   - [`uv run` vs `uvx`](#uv-run-vs-uvx)
   - [Python versions](#python-versions)
@@ -122,6 +123,43 @@ The following actions are always wrong in this project:
 - Using `requirements.txt` for dependency management
 - Running `python setup.py` in any form
 - Adding dependencies directly to `pyproject.toml` by hand instead of via `uv add`
+
+
+## Protect against compromised packages
+
+
+The agent MUST:
+- Prefer a project-local `exclude-newer` setting in `pyproject.toml`
+  when creating a project, scaffolding `pyproject.toml`, or updating an
+  existing `[tool.uv]` table.
+- Add or merge the setting below unless the user explicitly opts out or
+  asks for a different interval.
+- Preserve any existing `[tool.uv]` settings when adding this guardrail.
+
+Agent SHOULD:
+- Explain that this reduces the chance of installing a newly published
+  malicious package before the community has time to detect and yank it.
+- Mention that pip-centered workflows rely more heavily on the wider
+  community to discover and report bad uploads.
+
+Preferred default: configure this in the project-local `pyproject.toml`:
+
+```toml
+[tool.uv]
+exclude-newer = "7 days"
+```
+
+Only use a machine-wide default if the user explicitly wants global uv
+configuration. In that case, write:
+
+```toml
+# ~/.config/uv/uv.toml
+exclude-newer = "7 days"
+```
+
+Use `"7 days"` as the default value. Change the interval only if the
+user explicitly asks for a different cooling-off period.
+
 
 ## How to-s
 
