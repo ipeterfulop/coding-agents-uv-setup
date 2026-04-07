@@ -1,9 +1,9 @@
-# Make Claude Code Use `uv`
+# Make Claude Code use `uv`
 
 
-- [Why This Matters](#why-this-matters)
-- [Quick Verification](#quick-verification)
-- [Use the Bundled `CLAUDE.md`](#use-the-bundled-claudemd)
+- [Why this matters](#why-this-matters)
+- [Quick verification](#quick-verification)
+- [Use the bundled `CLAUDE.md`](#use-the-bundled-claudemd)
 
 
 
@@ -16,7 +16,7 @@ This guide starts with a quick behavior check, then shows how to reuse the
 included `CLAUDE.md` file in a project root or as a broader default for other
 projects.
 
-## Why This Matters
+## Why this matters
 
 When the package manager is ambiguous, Claude Code may choose commands that do
 not match the rest of the project. That usually shows up in a few ways:
@@ -28,7 +28,7 @@ not match the rest of the project. That usually shows up in a few ways:
 Adding a short repository rule set avoids that ambiguity. This repository
 already includes one in [CLAUDE.md](.claude/CLAUDE.md).
 
-## Quick Verification
+## Quick verification
 
 Before you refine the wording, it helps to know what good behavior looks like.
 Open Claude Code in the repository and try one or two prompts such as:
@@ -44,7 +44,7 @@ If the configuration is working, Claude should prefer commands like:
 If it reaches for `pip install` or plain `python`, the repository instructions
 are not specific enough yet.
 
-## Use the Bundled `CLAUDE.md`
+## Use the bundled `CLAUDE.md`
 
 Instead of writing a new file from scratch, start from the bundled
 [CLAUDE.md](.claude/CLAUDE.md).
@@ -58,7 +58,7 @@ If you already generated a starter file with `/init`, replace the Python
 instructions with the version from the bundled file rather than merging the two
 by hand.
 
-## What the Included File Covers
+## What the included file covers
 
 The bundled [CLAUDE.md](.claude/CLAUDE.md)
 already gives Claude Code the important signals:
@@ -72,7 +72,7 @@ already gives Claude Code the important signals:
 That means most users should copy the file as-is, then make only small
 project-specific edits if they need extra tools or stricter conventions.
 
-## Common Mistakes
+## Common mistakes
 
 Most configuration problems come from instructions that are technically true
 but too vague. Watch for these patterns:
@@ -86,7 +86,7 @@ but too vague. Watch for these patterns:
 
 It also helps to start from the bundled file and edit less, not more.
 
-## Example Test With Polars
+## Example test with Polars
 
 If you want a concrete smoke test, use a task that forces Claude to both add a
 dependency and execute code.
@@ -126,7 +126,7 @@ The expected behavior is `uv add polars` followed by `uv run python ...`. If
 Claude edits dependency files manually or uses `pip install`, the instructions
 still need work.
 
-## Optional: Make It Global
+## Optional: Make it global
 
 If you want the same default behavior across multiple repositories, use the
 bundled [CLAUDE.md](.claude/CLAUDE.md)

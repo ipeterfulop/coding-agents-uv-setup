@@ -4,7 +4,7 @@
 
 _As we have previously create an AGENTS.md file for Codex, we can use it to create a Cursor rule._
 
-In the View -> Command Palette select "File: New Cursor Rule" then in the appearing window run the following command:
+In the View -> Command Palette select `File: New Cursor Rule` then in the appearing window run the following command:
 
 ```text
 /create-rule
