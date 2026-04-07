@@ -1,4 +1,4 @@
-# Configure Coding Agents to Use `uv`
+# Configure coding agents to use `uv`
 
 This repository provides reusable instruction files for coding agents that
 should follow a consistent `uv`-based Python workflow.
@@ -18,7 +18,7 @@ Instead of mixing tools such as `pip`, `virtualenv`, `pip-tools`, or `pipx`,
 you can teach the agent one clear command family and expect more predictable
 results.
 
-## What This Repository Contains
+## What this repository contains
 
 This repository does not contain an example application. It contains agent-
 facing instruction files and companion guides that help you apply the same
@@ -38,7 +38,7 @@ They all reinforce the same core idea: use `uv` for Python package management
 and execution. The difference is the format and phrasing needed for Claude,
 Codex, and Cursor.
 
-## Start Here
+## Start here
 
 If you want to use the Claude-oriented version, start with
 [`.claude/README.md`](.claude/README.md).
@@ -60,7 +60,7 @@ always-on rule at
 [`.cursor/rules/python-uv-enforcement.mdc`](.cursor/rules/python-uv-enforcement.mdc)
 that keeps Cursor aligned with the same `uv`-first workflow.
 
-## Repository Structure
+## Repository structure
 
 | Path | Purpose |
 |------|---------|
@@ -71,7 +71,7 @@ that keeps Cursor aligned with the same `uv`-first workflow.
 | [`.cursor/README.md`](.cursor/README.md) | Guide for creating a Cursor rule from the bundled `AGENTS.md` so Cursor follows the same `uv` workflow. |
 | [`.cursor/rules/python-uv-enforcement.mdc`](.cursor/rules/python-uv-enforcement.mdc) | Ready-made Cursor rule that keeps Python dependency management, environment setup, and execution on `uv`. |
 
-## Picking the Right File
+## Picking the right file
 
 Use [`.claude/CLAUDE.md`](.claude/CLAUDE.md)
 when the agent expects Claude-style project memory.
@@ -87,7 +87,7 @@ If you support both tools, keep both files aligned on policy, but do not assume
 they should be textually identical. They are similar by design, while still
 being optimized for Claude, Codex, and Cursor respectively.
 
-## Freeing Up Space
+## Freeing up space
 
 If you use `uv` heavily, its cache directory can grow over time. It is worth
 checking occasionally, especially if you frequently install tools or work
