@@ -1,4 +1,4 @@
-# Make Codex Use `uv`
+# Make Codex use `uv`
 
 Codex works better when the repository gives it direct, local instructions.
 For Python projects that should use `uv` consistently, this directory already
@@ -9,7 +9,7 @@ fallbacks to `pip` or raw `python`.
 This guide explains how to use that file as the default instruction set for
 Codex sessions.
 
-## Why This Matters
+## Why this matters
 
 Without a clear project policy, Codex may choose commands that technically work
 but do not match the repository standard. In a Python project, that usually
@@ -23,7 +23,7 @@ means one of these:
 The bundled [AGENTS.md](.codex/AGENTS.md)
 is meant to prevent that.
 
-## Quick Verification
+## Quick verification
 
 Before you refine the wording, it helps to know what good behavior looks like.
 Open Codex in the repository and try one or two prompts such as:
@@ -39,7 +39,7 @@ If the configuration is working, Codex should prefer commands like:
 If it reaches for `pip install`, plain `python`, or `uv pip install`, the
 repository instructions are not specific enough yet.
 
-## Use the Bundled `AGENTS.md`
+## Use the bundled `AGENTS.md`
 
 Treat the bundled
 [AGENTS.md](.codex/AGENTS.md)
@@ -56,7 +56,7 @@ If you already have an `AGENTS.md`, compare it against the bundled version and
 keep one clear source of truth. Mixing overlapping rule sets usually makes the
 agent less predictable.
 
-## What the Included File Covers
+## What the included file covers
 
 The bundled [AGENTS.md](.codex/AGENTS.md)
 already gives Codex the important operational rules:
@@ -75,7 +75,7 @@ already gives Codex the important operational rules:
 It also includes extra guidance for linting, testing, type checking, coding
 style, and common `uv` workflows.
 
-## Common Mistakes
+## Common mistakes
 
 The most common setup mistakes are straightforward:
 
@@ -88,7 +88,7 @@ The most common setup mistakes are straightforward:
 In practice, the cleanest approach is to start from the bundled file and change
 as little as possible.
 
-## Example Test With Polars
+## Example test with Polars
 
 If you want a concrete smoke test, use a task that forces Codex to both add a
 dependency and execute code.
@@ -128,7 +128,7 @@ The expected behavior is `uv add polars` followed by `uv run python ...`. If
 Codex edits dependency files manually or uses `pip install` or `uv pip install`,
 the instructions still need work.
 
-## When To Customize
+## When to customize
 
 Copy the bundled file as-is unless the target repository genuinely needs extra
 rules. Good reasons to customize it include:
