@@ -1,0 +1,28 @@
+---
+description: Enforce uv-only Python workflows for dependencies, environments, and execution
+alwaysApply: true
+---
+
+# Use uv For Python Work
+
+When a task involves Python, package management, virtual environments, linting, testing, type checking, or running project scripts, use `uv` workflows only.
+
+- Use `uv add`, `uv add --dev`, `uv remove`, `uv sync`, and `uv lock` for dependency and environment changes.
+- Use `uv run ...` for project code and project tools such as `python`, `pytest`, `ruff`, `mypy`, and `ty`.
+- Use `uv run --with <package> ...` for temporary dependencies that should not be recorded in `pyproject.toml`.
+- Use `uvx <tool>` only for one-off tools that should not become project dependencies.
+- Prefer `uv init` or `uv init --package` when initializing Python projects.
+- Default to project-local `[tool.uv] exclude-newer = "14 days"` when creating or updating `pyproject.toml`, unless the user asks for a different interval or explicitly wants global uv config.
+
+Do not:
+
+- Use `pip`, `pip-tools`, `poetry`, `conda`, `pipenv`, or manual virtualenv activation/creation.
+- Use `uv pip install` as a substitute for `uv add`.
+- Edit dependency lists in `pyproject.toml` manually.
+- Run `python`, `pytest`, `ruff`, `mypy`, or similar tools directly when `uv run ...` should be used.
+- Introduce `requirements.txt`, `setup.py`, or `setup.cfg` for normal project workflows.
+
+Examples:
+
+- Good: `uv add --dev pytest`, `uv sync`, `uv run pytest`, `uv run ruff check .`, `uvx pre-commit install`
+- Bad: `pip install pytest`, `python script.py`, `pytest`, `ruff check .`, manual `.venv` setup
