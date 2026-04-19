@@ -1,0 +1,4 @@
+interface:
+  display_name: "Python Repo Health"
+  short_description: "One-page health checks for Python repos"
+  default_prompt: "Use $python-repo-health-check to assess this Python repo and return a one-page report."
