@@ -108,3 +108,38 @@ If subagents are unavailable, fail closed with this exact message:
 - Add a short execution line near the top of the report:
   - `Execution mode: Dalton, the repo health checker`
   - or `Execution mode: worker subagent, the repo health checker`
+ 
+## Health Report generation process
+
+```mermaid
+flowchart TB
+    U["User request"]
+    M["Main agent"]
+    A["Understand task:
+    Python repo health check"]
+
+    U --> M --> A
+
+    A --> D{"Bounded,
+    independent,
+    tool-using task?"}
+
+    D -->|Yes| S["Spawn subagent
+    via repo-health skill"]
+    D -->|No| L["Handle directly
+    in main agent"]
+    L --> F["Final response"]
+
+    subgraph SG["Subagent-backed Python repo health check"]
+        direction LR
+        S --> R["Inspect repo files"]
+        R --> C["Run checks"]
+        C --> E["Evaluate health"]
+        E --> P["Produce report"]
+    end
+
+    P --> MR["Main agent reviews
+    output"]
+    MR --> F
+
+```
